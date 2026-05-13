@@ -478,9 +478,13 @@
           <h1>Bin Rao</h1>
           <div class="subtitle">
             Ph.D. Student
-			  <a href="https://skliotsc.um.edu.mo/" target="_blank" rel="noopener">State Key Laboratory of Internet of Things for Smart City (SKL-IOTSC)</a>
-			  <a href="https://www.um.edu.mo/" target="_blank" rel="noopener">University of Macau</a>
-          </div>
+	<p class="bio-text">
+	<a href="https://skliotsc.um.edu.mo/" target="_blank" rel="noopener">State Key Laboratory of Internet of Things for Smart City (SKL-IOTSC)</a>
+	 </p>	
+	  <p class="bio-text">
+	<a href="https://www.um.edu.mo/" target="_blank" rel="noopener">University of Macau</a>
+          </p>
+</div>
         </div>
 
         <div class="contact-info">
@@ -497,12 +501,10 @@
           <!-- <a href="https://x.com/clin_tian" target="_blank" rel="noopener">Twitter/X</a> -->
         </div>
 
-        <!-- <div class="job-badge">
-          Open to positions: Faculty / Postdoc / Research Scientist
-        </div> -->
+       
       </div>
 
-      <img class="avatar" src="./img/profile.jpg" alt="Bin Rao" />
+      <img class="avatar" src="./img/prof.jpg" alt="Bin Rao" />
     </section>
 
     <h2 id="bio">About</h2>
@@ -512,15 +514,15 @@
       <a href="https://skliotsc.um.edu.mo/" target="_blank" rel="noopener">State Key Laboratory of Internet of Things for Smart City (SKL-IOTSC)</a>,
       <a href="https://www.um.edu.mo/" target="_blank" rel="noopener">University of Macau</a>, advised by
       <a href="https://www.fst.um.edu.mo/people/zhenningli/" target="_blank" rel="noopener">Prof. Zhenning Li</a>.
-      My research focuses on building robust AI frameworks for <strong>Intelligent Transportation and Autonomous Driving</strong>, with an emphasis on trajectory prediction and planning, accident forecasting, and driver behavior recognition.
-      I have published 10+ papers in top-tier journals and conferences, including TR-C, T-ITS, ICCV, AAAI, CVPR, ACM MM, and IJCAI.
+      My research focuses on building robust AI frameworks for <strong>Intelligent Transportation</strong> and <strong>Autonomous Driving</strong>, with an emphasis on trajectory prediction and planning, accident forecasting, and driver behavior recognition.
+      I have published 10+ papers in top-tier journals and conferences, including TR-C, T-ITS, ICCV, AAAI, CVPR, and ACM MM.
     </p>
 
     <h2 id="news">News</h2>
     <ul class="news-list" id="newsList">
       <li><span class="news-date">2026.05</span> <span>One paper accepted to <strong>TR-C</strong>.</span></li>
-      <li><span class="news-date">2025.11</span> <span>Two paper accepted to <strong>AAAI 2026</strong>.</span></li>
-      <li class="news-hidden"><span class="news-date">2025.07</span> <span>Attended the 5th Macao International Conference On Smart City Technologies, 2025, and received the <strong>Best Poster Award (First First)</strong>.</span></li>
+      <li><span class="news-date">2025.11</span> <span>Two papers accepted to <strong>AAAI 2026</strong>.</span></li>
+      <li><span class="news-date">2025.08</span> <span>Attended the 5th <strong>MCSCT 2025</strong>, and received the <strong>Best Poster Award (First First)</strong>.</span></li>
       <li class="news-hidden"><span class="news-date">2025.05</span> <span>One paper accepted to <strong>ICCV 2025</strong>.</span></li>
     </ul>
     <button class="news-toggle" id="newsToggle" type="button">Show more</button>
@@ -818,7 +820,7 @@
         
         hiddenNews.forEach(item => {
           // 如果展开，显示为列表项；如果折叠，清空样式恢复 CSS 默认的隐藏状态
-          item.style.display = isNewsExpanded ? 'list-item' : '';
+          item.style.display = isNewsExpanded ? 'flex' : '';
         });
         
         // 动态修改按钮的文字内容
