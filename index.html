@@ -640,7 +640,7 @@
 <!-- ================= Others 部分开始 ================= -->
 
       <!-- Publication 1 -->
-      <div class="pub-card" data-pub-category="Others" style="display: block; padding: 16px 20px;">
+      <div class="pub-card no-image" data-pub-category="Others">
         <div class="pub-details">
           <div class="pub-title">
             <a href=" " target="_blank" rel="noopener">Pose, Pixel, and Causality: Temporal Causal Reasoning for Multimodal Driver Behavior Recognition.</a>
@@ -653,7 +653,7 @@
       </div>
 
       <!-- Publication 2 -->
-      <div class="pub-card" data-pub-category="Others" style="display: block; padding: 16px 20px;">
+      <div class="pub-card no-image" data-pub-category="Others">
         <div class="pub-details">
           <div class="pub-title">
             <a href="https://www.sciencedirect.com/science/article/abs/pii/S0263224125016987" target="_blank" rel="noopener">Urban road network travel time prediction method based on “node-link-network” spatiotemporal reconstruction: A license plate data-driven WGCN-BiLSTM model.</a>
@@ -792,8 +792,8 @@
 
   </div>
 
-  <script>
-    // Back-to-top show/hide
+<script>
+    // 返回顶部按钮逻辑 (保持不变)
     const toTop = document.querySelector('.to-top');
     const toggleToTop = () => {
       if (window.scrollY > 500) toTop.classList.add('show');
@@ -802,53 +802,45 @@
     window.addEventListener('scroll', toggleToTop, { passive: true });
     toggleToTop();
 
-    // Publication category tabs
+
+    // -----------------------------------------------------
     const pubTabs = document.querySelectorAll('.pub-tab');
-    const pubList = document.querySelector('.pub-list');
-    const pubCards = document.querySelectorAll('.pub-card[data-pub-category]');
-    
-    const getPubTitle = (card) => (card.querySelector('.pub-title')?.innerText || '').trim();
-    const getPubRank = (card) => {
-      const category = card.dataset.pubCategory;
-      const title = getPubTitle(card);
-      const order = pubOrder[category] || [];
-      const idx = order.findIndex((key) => title.includes(key));
-      return idx === -1 ? 999 : idx;
-    };
-    if (pubList) {
-      [...pubCards]
-        .sort((a, b) => {
-          const catCmp = a.dataset.pubCategory.localeCompare(b.dataset.pubCategory);
-          if (catCmp !== 0) return catCmp;
-          return getPubRank(a) - getPubRank(b);
-        })
-        .forEach((card) => pubList.appendChild(card));
-    }
+    const pubCards = document.querySelectorAll('.pub-card');
+
     const setPubFilter = (category) => {
+
       pubTabs.forEach((tab) => {
         const active = tab.dataset.pubFilter === category;
         tab.classList.toggle('active', active);
         tab.setAttribute('aria-selected', active ? 'true' : 'false');
       });
+
+
       pubCards.forEach((card) => {
-        card.classList.toggle('is-hidden', card.dataset.pubCategory !== category);
+        const isMatch = card.dataset.pubCategory === category;
+        
+        if (isMatch) {
+          // 如果是 Others 类，恢复你设定的 block 样式
+          if (card.dataset.pubCategory === 'Others') {
+            card.style.display = 'block';
+          } else {
+            // 如果是带图片的 Pub 类，清空内联样式，让它用默认的网格排版
+            card.style.display = ''; 
+          }
+        } else {
+
+          card.style.display = 'none';
+        }
       });
     };
+
+
     pubTabs.forEach((tab) => {
       tab.addEventListener('click', () => setPubFilter(tab.dataset.pubFilter));
     });
-    setPubFilter('Pub');
 
-    // News toggle
-    const newsToggle = document.getElementById('newsToggle');
-    const newsList = document.getElementById('newsList');
-    let newsExpanded = false;
-    newsToggle.addEventListener('click', () => {
-      newsExpanded = !newsExpanded;
-      newsList.querySelectorAll('.news-hidden').forEach(li => {
-        li.style.display = newsExpanded ? 'flex' : 'none';
-      });
-      newsToggle.textContent = newsExpanded ? 'Show less' : 'Show more';
+    document.addEventListener('DOMContentLoaded', () => {
+      setPubFilter('Pub');
     });
   </script>
 
