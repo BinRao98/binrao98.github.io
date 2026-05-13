@@ -569,7 +569,7 @@
 
 <!-- Publication 1 -->
       <div class="pub-card" data-pub-category="Pub">
-        <img class="pub-img" src="./img/SAIL.png" alt="TR-C" />
+        <img class="pub-img" src="./img/SAIL1.png" alt="TR-C" />
         <div class="pub-details">
           <div class="pub-title">
             <a href="https://arxiv.org/abs/2604.04573" target="_blank" rel="noopener">SAIL: Scene-aware Adaptive Iterative Learning for Long-Tail Trajectory Prediction in Autonomous Vehicles.</a>
@@ -809,22 +809,7 @@
     const pubTabs = document.querySelectorAll('.pub-tab');
     const pubList = document.querySelector('.pub-list');
     const pubCards = document.querySelectorAll('.pub-card[data-pub-category]');
-    const pubOrder = {
-      system: [
-        'CLONE: Customizing LLMs',
-        'HARMONY: Heterogeneity-Aware Hierarchical',
-        'Floe: Federated Specialization',
-        'Breaking the Memory Wall for Heterogeneous',
-        'FedHybrid: Breaking the Memory Wall'
-      ],
-      ml: [
-        'HydraLoRA: An Asymmetric LoRA',
-        'A Survey on Federated Fine-Tuning',
-        'Ranking-based Client Imitation Selection',
-        'FedGCS: A Generative Framework',
-        'Learn to Select: Efficient Cross-device'
-      ]
-    };
+    
     const getPubTitle = (card) => (card.querySelector('.pub-title')?.innerText || '').trim();
     const getPubRank = (card) => {
       const category = card.dataset.pubCategory;
@@ -855,7 +840,7 @@
     pubTabs.forEach((tab) => {
       tab.addEventListener('click', () => setPubFilter(tab.dataset.pubFilter));
     });
-    setPubFilter('system');
+    setPubFilter('Pub');
 
     // News toggle
     const newsToggle = document.getElementById('newsToggle');
