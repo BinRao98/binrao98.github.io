@@ -510,11 +510,7 @@
       <a href="https://skliotsc.um.edu.mo/" target="_blank" rel="noopener">State Key Laboratory of Internet of Things for Smart City (SKL-IOTSC)</a>,
       <a href="https://www.um.edu.mo/" target="_blank" rel="noopener">University of Macau</a>, advised by
       <a href="https://www.fst.um.edu.mo/people/zhenningli/" target="_blank" rel="noopener">Prof. Zhenning Li</a>.
-    </p>
-    <p class="bio-text">
       My research focuses on building robust AI frameworks for <strong>intelligent transportation and autonomous driving</strong>, with an emphasis on trajectory prediction and planning, accident forecasting, and driver behavior recognition.
-    </p>
-    <p class="bio-text" style="margin-top: 10px;">
       I have published 10+ papers in top-tier journals and conferences, including TR-C, T-ITS, ICCV, AAAI, CVPR, and ACM MM.
     </p>
 
@@ -806,6 +802,27 @@
     };
     window.addEventListener('scroll', toggleToTop, { passive: true });
     toggleToTop();
+
+	// ==========================================
+    // 2. News 新闻折叠/展开逻辑 (修复部分)
+    // ==========================================
+    const newsToggle = document.getElementById('newsToggle');
+    const hiddenNews = document.querySelectorAll('.news-hidden');
+    let isNewsExpanded = false;
+
+    if (newsToggle) {
+      newsToggle.addEventListener('click', () => {
+        isNewsExpanded = !isNewsExpanded; // 切换状态
+        
+        hiddenNews.forEach(item => {
+          // 如果展开，显示为列表项；如果折叠，清空样式恢复 CSS 默认的隐藏状态
+          item.style.display = isNewsExpanded ? 'list-item' : '';
+        });
+        
+        // 动态修改按钮的文字内容
+        newsToggle.textContent = isNewsExpanded ? 'Show less' : 'Show more';
+      });
+    }
 
     // -----------------------------------------------------
     // 终极版 Publication 切换逻辑 (直接控制 Inline Style)
