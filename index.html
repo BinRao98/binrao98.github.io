@@ -509,9 +509,12 @@
       I am a Ph.D. student at the
       <a href="https://skliotsc.um.edu.mo/" target="_blank" rel="noopener">State Key Laboratory of Internet of Things for Smart City (SKL-IOTSC)</a>,
       <a href="https://www.um.edu.mo/" target="_blank" rel="noopener">University of Macau</a>, advised by
-      <a href="https://www.fst.um.edu.mo/people/zhenningli/" target="_blank" rel="noopener">Prof. Zhenning Li</a>. My research focuses on building robust AI frameworks for
-		<strong>intelligent transportation and autonomous driving</strong>,
-		with an emphasis on trajectory prediction and planning, accident forecasting, and driver behavior recognition.
+      <a href="https://www.fst.um.edu.mo/people/zhenningli/" target="_blank" rel="noopener">Prof. Zhenning Li</a>.
+    </p>
+    <p class="bio-text">
+      My research focuses on building robust AI frameworks for <strong>intelligent transportation and autonomous driving</strong>, with an emphasis on trajectory prediction and planning, accident forecasting, and driver behavior recognition.
+    </p>
+    <p class="bio-text" style="margin-top: 10px;">
       I have published 10+ papers in top-tier journals and conferences, including TR-C, T-ITS, ICCV, AAAI, CVPR, and ACM MM.
     </p>
 
@@ -578,7 +581,21 @@
         </div>
       </div>
 
-		<!-- Publication 2 -->
+	<!-- Publication 2 -->
+      <div class="pub-card" data-pub-category="Pub">
+        <img class="pub-img" src="./img/AMD2.png" alt="ICCV 2025" />
+        <div class="pub-details">
+          <div class="pub-title">
+            <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Rao_AMD_Adaptive_Momentum_and_Decoupled_Contrastive_Learning_Framework_for_Robust_ICCV_2025_paper.html" target="_blank" rel="noopener">AMD: Adaptive Momentum and Decoupled Contrastive Learning Framework for Robust Long-Tail Trajectory Prediction.</a>
+          </div>
+          <div class="pub-authors">
+            <strong>Bin Rao</strong>, Haicheng Liao, Yanchen Guan, Chengyue Wang, Bonan Wang, Jiaxun Zhang, and Zhenning Li
+          </div>
+          <div class="pub-venue">ICCV 2025. [AR: 2699/11239 = 24.0%]</div>
+        </div>
+      </div>
+
+		<!-- Publication 3 -->
       <div class="pub-card" data-pub-category="Pub">
         <img class="pub-img" src="./img/SAML.png" alt="AAAI 2026" />
         <div class="pub-details">
@@ -592,19 +609,7 @@
         </div>
       </div>
 		
-	<!-- Publication 3 -->
-      <div class="pub-card" data-pub-category="Pub">
-        <img class="pub-img" src="./img/AMD1.png" alt="ICCV 2025" />
-        <div class="pub-details">
-          <div class="pub-title">
-            <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Rao_AMD_Adaptive_Momentum_and_Decoupled_Contrastive_Learning_Framework_for_Robust_ICCV_2025_paper.html" target="_blank" rel="noopener">AMD: Adaptive Momentum and Decoupled Contrastive Learning Framework for Robust Long-Tail Trajectory Prediction.</a>
-          </div>
-          <div class="pub-authors">
-            <strong>Bin Rao</strong>, Haicheng Liao, Yanchen Guan, Chengyue Wang, Bonan Wang, Jiaxun Zhang, and Zhenning Li
-          </div>
-          <div class="pub-venue">ICCV 2025. [AR: 2699/11239 = 24.0%]</div>
-        </div>
-      </div>
+
 
 		
 
@@ -640,7 +645,7 @@
 <!-- ================= Others 部分开始 ================= -->
 
       <!-- Publication 1 -->
-      <div class="pub-card no-image" data-pub-category="Others">
+      <div class="pub-card" data-pub-category="Others" style="display: block; padding: 16px 20px;">
         <div class="pub-details">
           <div class="pub-title">
             <a href=" " target="_blank" rel="noopener">Pose, Pixel, and Causality: Temporal Causal Reasoning for Multimodal Driver Behavior Recognition.</a>
@@ -653,7 +658,7 @@
       </div>
 
       <!-- Publication 2 -->
-      <div class="pub-card no-image" data-pub-category="Others">
+      <div class="pub-card" data-pub-category="Others" style="display: block; padding: 16px 20px;">
         <div class="pub-details">
           <div class="pub-title">
             <a href="https://www.sciencedirect.com/science/article/abs/pii/S0263224125016987" target="_blank" rel="noopener">Urban road network travel time prediction method based on “node-link-network” spatiotemporal reconstruction: A license plate data-driven WGCN-BiLSTM model.</a>
@@ -802,20 +807,21 @@
     window.addEventListener('scroll', toggleToTop, { passive: true });
     toggleToTop();
 
-
+    // -----------------------------------------------------
+    // 终极版 Publication 切换逻辑 (直接控制 Inline Style)
     // -----------------------------------------------------
     const pubTabs = document.querySelectorAll('.pub-tab');
     const pubCards = document.querySelectorAll('.pub-card');
 
     const setPubFilter = (category) => {
-
+      // 1. 更新按钮的激活状态 (变色)
       pubTabs.forEach((tab) => {
         const active = tab.dataset.pubFilter === category;
         tab.classList.toggle('active', active);
         tab.setAttribute('aria-selected', active ? 'true' : 'false');
       });
 
-
+      // 2. 暴力控制显示与隐藏
       pubCards.forEach((card) => {
         const isMatch = card.dataset.pubCategory === category;
         
@@ -828,17 +834,18 @@
             card.style.display = ''; 
           }
         } else {
-
+          // 如果不匹配，强行用 inline style 隐藏 (绝对生效)
           card.style.display = 'none';
         }
       });
     };
 
-
+    // 3. 为每个按钮绑定点击事件
     pubTabs.forEach((tab) => {
       tab.addEventListener('click', () => setPubFilter(tab.dataset.pubFilter));
     });
 
+    // 4. 页面加载时，默认显示 'Pub' 分类
     document.addEventListener('DOMContentLoaded', () => {
       setPubFilter('Pub');
     });
