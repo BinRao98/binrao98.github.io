@@ -485,3 +485,29 @@ span.highlight {
   .clustrmaps-image:hover {
 	transform: scale(1.02); /* 悬停放大 */
   }
+
+
+/* 1. 强力重置：模拟你手动写的 display: block 效果 */
+.pub-card.no-image {
+    display: block !important; 
+    width: 100% !important;
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+    /* 清除可能存在的网格间隙 */
+    grid-template-columns: none !important; 
+}
+
+/* 2. 彻底抹除文字容器的左边距（解决挤在左边的问题） */
+.pub-card.no-image .pub-details {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+/* 3. 终极指令：确保隐藏类能杀掉上面的 block 效果 */
+/* 注意：必须带上 !important 且放在文件靠后的位置 */
+.pub-card.is-hidden {
+    display: none !important;
+}
