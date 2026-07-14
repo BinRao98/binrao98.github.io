@@ -112,7 +112,7 @@
 
         if ($('#mmvst_a').length === 0) {
             
-                            var link = '<a id="mmvst_a"  href="//mapmyvisitors.com">';
+                            var link = '<a id="mmvst_a" href="#visitor-map" aria-label="Visitor map">';
             
             var container = $('<div class="mmvst_outer">' + link +
                               '<div class="mmvst_inner">' +
@@ -474,5 +474,4 @@
     }
 
 })(window, document);
-
 
