@@ -842,53 +842,7 @@
 
 <div class="footer-widget">
       <div class="visitor-map" id="visitor-map" aria-label="Visitor map">
-        <script>
-          (function() {
-            window.__visitorMapModule = window.module;
-            window.__visitorMapExports = window.exports;
-            window.module = undefined;
-            window.exports = undefined;
-          })();
-        </script>
-        <script src="js/jquery-1.12.4.min.js"></script>
-        <script>
-          if (window.jQuery) {
-            window.globe_jq = window.jQuery.noConflict(true);
-          }
-        </script>
-        <script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=MB50lLFlNMSDqrLbNSXtbCW3BGKOBPPBlD-sVvOKoN4"></script>
-        <script>
-          (function() {
-            var visitorMapUrl = 'https://mapmyvisitors.com/web/1c4ij';
-            var updateVisitorMapLink = function() {
-              var link = document.getElementById('mmvst_a');
-              if (!link) {
-                return false;
-              }
-              link.href = visitorMapUrl;
-              link.target = '_blank';
-              link.rel = 'noopener';
-              link.setAttribute('aria-label', 'Visitor map');
-              return true;
-            };
-
-            if (!updateVisitorMapLink()) {
-              var attempts = 0;
-              var timer = window.setInterval(function() {
-                attempts += 1;
-                if (updateVisitorMapLink() || attempts > 40) {
-                  window.clearInterval(timer);
-                }
-              }, 250);
-            }
-          })();
-        </script>
-        <script>
-          window.module = window.__visitorMapModule;
-          window.exports = window.__visitorMapExports;
-          delete window.__visitorMapModule;
-          delete window.__visitorMapExports;
-        </script>
+        <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=kpUV9J3cesesA451C6aJZkFk7brGtTWnYGv-lLprSEs&cl=ffffff&w=a"></script>
       </div>
 
     </div>
