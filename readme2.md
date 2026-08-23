@@ -306,7 +306,7 @@ If you use TruckAct in your research, please cite:
 ```bibtex
 @article{wang2026truckact,
   title={TruckAct: A multi-source, multimodal dataset for real-world truck driver activity recognition},
-  author={Wang, Qianfang and Rao, Bin and Pei, Xin and Xue, Pengpeng and Chen, Tiantian},
+  author={Wang, Qianfang and Rao, Bin and Pei, Xin and Xu, Pengpeng and Chen, Tiantian},
   journal={},
   year={2026}
 }
