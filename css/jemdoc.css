@@ -77,7 +77,7 @@ pre, tt {
 }
 
 a, a > tt {
-	color:#1772d0;
+	color:#2563eb;
 	text-decoration: none;
 }
 /* #224b8d; */
@@ -510,4 +510,11 @@ span.highlight {
 /* 注意：必须带上 !important 且放在文件靠后的位置 */
 .pub-card.is-hidden {
     display: none !important;
+}
+
+/* 自定义 Bio 区域链接颜色 */
+.bio-text a {
+    color: #2563eb !important;             /* 默认颜色：现代科技蓝 */
+    text-decoration: none;                  /* 取消下划线 */
+    transition: color 0.2s ease;            /* 悬停平滑过渡 */
 }
